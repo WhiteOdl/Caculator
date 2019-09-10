@@ -49,7 +49,7 @@ int _operator = 0;
 }
 
 - (IBAction)number8:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"9"];
+    result.text = [result.text stringByAppendingString:@"8"];
 }
 
 - (IBAction)number9:(UIButton *)sender {
@@ -61,6 +61,13 @@ int _operator = 0;
     {
         history.text = @"0";
         first = false;
+    }
+    if(_operator != 1 && _operator != 0 && ![result.text isEqual:@""])
+    {
+        [self equal:nil];
+        _operator = 1;
+        first = false;
+        return;
     }
     if([result.text isEqual:@""])
     {
@@ -84,10 +91,16 @@ int _operator = 0;
         history.text = [NSString stringWithFormat:@"%@",p3];
         first = false;
     }
+    if(_operator != 2 && _operator != 0 && ![result.text isEqual:@""])
+    {
+        [self equal:nil];
+        _operator = 2;
+        first = false;
+        return;
+    }
     if([result.text isEqual:@""])
     {
         result.text = @"0";
-        history.text = @"0";
     }
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
@@ -103,6 +116,13 @@ int _operator = 0;
     {
         history.text = @"1";
         first = false;
+    }
+    if(_operator != 3 && _operator != 0 && ![result.text isEqual:@""])
+    {
+        [self equal:nil];
+        _operator = 3;
+        first = false;
+        return;
     }
     if([result.text isEqual:@""])
     {
@@ -125,11 +145,17 @@ int _operator = 0;
         history.text = [NSString stringWithFormat:@"%@",p2];
         first = false;
     }
+    if(_operator != 4 && _operator != 0 && ![result.text isEqual:@""])
+    {
+        [self equal:nil];
+        _operator = 4;
+        first = false;
+        return;
+    }
     if([result.text isEqual:@""])
     {
         result.text = @"1";
     }
-    
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *res = [his decimalNumberByDividingBy:cur];
