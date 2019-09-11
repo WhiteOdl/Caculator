@@ -69,10 +69,10 @@ int _operator = 0;
         //first = false;
         return;
     }
+    if([history.text  isEqual: @""])
+        return;
     if([result.text isEqual:@""])
-    {
         result.text = @"0";
-    }
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *res = [cur decimalNumberByAdding:his];
@@ -98,12 +98,10 @@ int _operator = 0;
         //first = false;
         return;
     }
-    if([result.text isEqual:@""])
-    {
-        result.text = @"0";
-    }
     if([history.text  isEqual: @""])
         return;
+    if([result.text isEqual:@""])
+        result.text = @"0";
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *res = [his decimalNumberBySubtracting:cur];
@@ -126,10 +124,10 @@ int _operator = 0;
         //first = false;
         return;
     }
+    if([history.text  isEqual: @""])
+        return;
     if([result.text isEqual:@""])
-    {
         result.text = @"1";
-    }
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *res = [cur decimalNumberByMultiplyingBy:his];
@@ -154,10 +152,10 @@ int _operator = 0;
         //first = false;
         return;
     }
+    if([history.text  isEqual: @""])
+        return;
     if([result.text isEqual:@""])
-    {
         result.text = @"1";
-    }
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *res = [his decimalNumberByDividingBy:cur];
@@ -191,10 +189,10 @@ int _operator = 0;
 }
 
 - (IBAction)equal:(UIButton *)sender {
-    if([result.text isEqual:@""])
-        result.text = @"0";
     if([history.text isEqual:@""])
         return;
+    if([result.text isEqual:@""])
+        result.text = @"0";
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *res ;
