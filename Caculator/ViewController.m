@@ -102,6 +102,8 @@ int _operator = 0;
     {
         result.text = @"0";
     }
+    if([history.text  isEqual: @""])
+        return;
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *res = [his decimalNumberBySubtracting:cur];
@@ -166,6 +168,8 @@ int _operator = 0;
 }
 
 - (IBAction)percent:(UIButton *)sender {
+    if([result.text  isEqual: @""])
+    return;
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *p = [NSDecimalNumber decimalNumberWithString:@"0.01"];
     NSDecimalNumber *res = [cur decimalNumberByMultiplyingBy:p];
@@ -189,6 +193,8 @@ int _operator = 0;
 - (IBAction)equal:(UIButton *)sender {
     if([result.text isEqual:@""])
         result.text = @"0";
+    if([history.text isEqual:@""])
+        return;
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *cur = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *res ;
@@ -222,7 +228,9 @@ int _operator = 0;
 
 - (IBAction)dot:(UIButton *)sender {
     if(!isDotExist && ![result.text  isEqual: @""])
+    {
         result.text = [result.text stringByAppendingString:@"."];
-    isDotExist = true;
+        isDotExist = true;
+    }
 }
 @end
