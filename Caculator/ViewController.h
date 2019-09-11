@@ -32,7 +32,6 @@
 - (IBAction)reverse:(UIButton *)sender;
 - (IBAction)clear:(UIButton *)sender;
 - (IBAction)equal:(UIButton *)sender;
-
 - (IBAction)dot:(UIButton *)sender;
 
 @end
