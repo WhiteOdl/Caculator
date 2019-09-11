@@ -14,7 +14,6 @@
 
 BOOL first = true;
 BOOL isDotExist = false;
-//BOOL afterEqual = false;
 int _operator = 0;
 
 - (IBAction)number0:(UIButton *)sender {
@@ -68,7 +67,6 @@ int _operator = 0;
         [self equal:nil];
         _operator = 1;
         //first = false;
-        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -98,7 +96,6 @@ int _operator = 0;
         [self equal:nil];
         _operator = 2;
         //first = false;
-        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -125,7 +122,6 @@ int _operator = 0;
         [self equal:nil];
         _operator = 3;
         //first = false;
-        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -154,7 +150,6 @@ int _operator = 0;
         [self equal:nil];
         _operator = 4;
         //first = false;
-        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -223,7 +218,6 @@ int _operator = 0;
     _operator = 0;
     //first = false;
     isDotExist = false;
-    //afterEqual = true;
 }
 
 - (IBAction)dot:(UIButton *)sender {
