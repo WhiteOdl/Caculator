@@ -14,7 +14,7 @@
 
 BOOL first = true;
 BOOL isDotExist = false;
-BOOL afterEqual = false;
+//BOOL afterEqual = false;
 int _operator = 0;
 
 - (IBAction)number0:(UIButton *)sender {
@@ -58,7 +58,7 @@ int _operator = 0;
 }
 
 - (IBAction)plus:(UIButton *)sender {
-    if(first && !afterEqual && ![result.text isEqual:@""])
+    if((first || !_operator) && ![result.text isEqual:@""])
     {
         history.text = @"0";
         first = false;
@@ -67,8 +67,8 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 1;
-        first = false;
-        afterEqual = false;
+        //first = false;
+        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -85,7 +85,7 @@ int _operator = 0;
 }
 
 - (IBAction)minus:(UIButton *)sender {
-    if(first && !afterEqual && ![result.text isEqual:@""])
+    if((first || !_operator) && ![result.text isEqual:@""])
     {
         NSDecimalNumber *p1 = [NSDecimalNumber decimalNumberWithString:result.text];
         NSDecimalNumber *p2 = [NSDecimalNumber decimalNumberWithString:@"2"];
@@ -97,8 +97,8 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 2;
-        first = false;
-        afterEqual = false;
+        //first = false;
+        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -115,7 +115,7 @@ int _operator = 0;
 }
 
 - (IBAction)multiply:(UIButton *)sender {
-    if(first && !afterEqual && ![result.text isEqual:@""])
+    if((first || !_operator) && ![result.text isEqual:@""])
     {
         history.text = @"1";
         first = false;
@@ -124,8 +124,8 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 3;
-        first = false;
-        afterEqual = false;
+        //first = false;
+        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -142,7 +142,7 @@ int _operator = 0;
 }
 
 - (IBAction)divide:(UIButton *)sender {
-    if(first && !afterEqual && ![result.text isEqual:@""])
+    if((first || !_operator) && ![result.text isEqual:@""])
     {
         NSDecimalNumber *p1 = [NSDecimalNumber decimalNumberWithString:result.text];
         NSDecimalNumber *p2 = [p1 decimalNumberByMultiplyingBy:p1];
@@ -153,8 +153,8 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 4;
-        first = false;
-        afterEqual = false;
+        //first = false;
+        //afterEqual = false;
         return;
     }
     if([result.text isEqual:@""])
@@ -221,9 +221,9 @@ int _operator = 0;
     result.text = @"";
     history.text = [NSString stringWithFormat:@"%@",res];
     _operator = 0;
-    first = true;
+    //first = false;
     isDotExist = false;
-    afterEqual = true;
+    //afterEqual = true;
 }
 
 - (IBAction)dot:(UIButton *)sender {
