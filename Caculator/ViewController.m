@@ -205,8 +205,6 @@ int _operator = 0;
             res = [his decimalNumberBySubtracting:cur];
         break;
     case 3:
-            if(cur.doubleValue == 0)
-               cur = [NSDecimalNumber decimalNumberWithString:@"1"];
             res = [his decimalNumberByMultiplyingBy:cur];
         break;
     case 4:
