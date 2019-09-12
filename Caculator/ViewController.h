@@ -14,16 +14,7 @@
     __weak IBOutlet UILabel *history;
 }
 
-- (IBAction)number0:(UIButton *)sender;
-- (IBAction)number1:(UIButton *)sender;
-- (IBAction)number2:(UIButton *)sender;
-- (IBAction)number3:(UIButton *)sender;
-- (IBAction)number4:(UIButton *)sender;
-- (IBAction)number5:(UIButton *)sender;
-- (IBAction)number6:(UIButton *)sender;
-- (IBAction)number7:(UIButton *)sender;
-- (IBAction)number8:(UIButton *)sender;
-- (IBAction)number9:(UIButton *)sender;
+- (IBAction)number:(UIButton *)sender;
 - (IBAction)plus:(UIButton *)sender;
 - (IBAction)minus:(UIButton *)sender;
 - (IBAction)multiply:(UIButton *)sender;

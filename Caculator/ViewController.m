@@ -16,44 +16,9 @@ BOOL first = true;
 BOOL isDotExist = false;
 int _operator = 0;
 
-- (IBAction)number0:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"0"];
-}
-
-- (IBAction)number1:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"1"];
-}
-
-- (IBAction)number2:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"2"];
-}
-
-- (IBAction)number3:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"3"];
-}
-
-- (IBAction)number4:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"4"];
-}
-
-- (IBAction)number5:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"5"];
-}
-
-- (IBAction)number6:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"6"];
-}
-
-- (IBAction)number7:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"7"];
-}
-
-- (IBAction)number8:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"8"];
-}
-
-- (IBAction)number9:(UIButton *)sender {
-    result.text = [result.text stringByAppendingString:@"9"];
+- (IBAction)number:(UIButton *)sender {
+    NSString *text = [NSString stringWithFormat:@"%@",sender.currentTitle];
+    result.text = [result.text stringByAppendingString:text];
 }
 
 - (IBAction)plus:(UIButton *)sender {
