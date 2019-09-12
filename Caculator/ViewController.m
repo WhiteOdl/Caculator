@@ -12,8 +12,8 @@
 @implementation ViewController : UIViewController
 
 
-BOOL first = true;
-BOOL dotExist = false;
+bool first = true;
+bool dotExist = false;
 int _operator = 0;
 
 - (IBAction)number:(UIButton *)sender {
@@ -187,7 +187,6 @@ int _operator = 0;
     }
     result.text = @"";
     history.text = [NSString stringWithFormat:@"%@",res];
-    //NSLog(@"%@",history.text);
     _operator = 0;
     dotExist = false;
 }
