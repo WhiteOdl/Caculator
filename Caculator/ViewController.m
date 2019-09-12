@@ -206,6 +206,6 @@ int _operator = 0;
         button.layer.borderWidth = 1;
         button.layer.borderColor = [UIColor blackColor].CGColor;
     }
-    NSLog(@"%lu",(unsigned long)number.count);
+    //NSLog(@"%lu",(unsigned long)number.count);
 }
 @end
