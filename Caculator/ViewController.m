@@ -13,10 +13,11 @@
 
 
 BOOL first = true;
-BOOL isDotExist = false;
+BOOL dotExist = false;
 int _operator = 0;
 
 - (IBAction)number:(UIButton *)sender {
+    history.hidden = true;
     NSString *text = [NSString stringWithFormat:@"%@",sender.currentTitle];
     result.text = [result.text stringByAppendingString:text];
 }
@@ -31,7 +32,6 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 1;
-        //first = false;
         return;
     }
     if([history.text  isEqual: @""])
@@ -44,7 +44,7 @@ int _operator = 0;
     history.text = [NSString stringWithFormat:@"%@",res];
     result.text = @"";
     _operator = 1;
-    isDotExist = false;
+    dotExist = false;
 }
 
 - (IBAction)minus:(UIButton *)sender {
@@ -60,7 +60,6 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 2;
-        //first = false;
         return;
     }
     if([history.text  isEqual: @""])
@@ -73,7 +72,7 @@ int _operator = 0;
     history.text = [NSString stringWithFormat:@"%@",res];
     result.text = @"";
     _operator = 2;
-    isDotExist = false;
+    dotExist = false;
 }
 
 - (IBAction)multiply:(UIButton *)sender {
@@ -86,7 +85,6 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 3;
-        //first = false;
         return;
     }
     if([history.text  isEqual: @""])
@@ -99,7 +97,7 @@ int _operator = 0;
     history.text = [NSString stringWithFormat:@"%@",res];
     result.text = @"";
     _operator = 3;
-    isDotExist = false;
+    dotExist = false;
 }
 
 - (IBAction)divide:(UIButton *)sender {
@@ -114,7 +112,6 @@ int _operator = 0;
     {
         [self equal:nil];
         _operator = 4;
-        //first = false;
         return;
     }
     if([history.text  isEqual: @""])
@@ -127,7 +124,7 @@ int _operator = 0;
     history.text = [NSString stringWithFormat:@"%@",res];
     result.text = @"";
     _operator = 4;
-    isDotExist = false;
+    dotExist = false;
 }
 
 - (IBAction)percent:(UIButton *)sender {
@@ -154,6 +151,7 @@ int _operator = 0;
 }
 
 - (IBAction)equal:(UIButton *)sender {
+    history.hidden = false;
     if([history.text isEqual:@""])
         return;
     if([result.text isEqual:@""])
@@ -182,16 +180,16 @@ int _operator = 0;
     }
     result.text = @"";
     history.text = [NSString stringWithFormat:@"%@",res];
+    NSLog(@"%@",history.text);
     _operator = 0;
-    //first = false;
-    isDotExist = false;
+    dotExist = false;
 }
 
 - (IBAction)dot:(UIButton *)sender {
-    if(!isDotExist && ![result.text  isEqual: @""])
+    if(!dotExist && ![result.text  isEqual: @""])
     {
         result.text = [result.text stringByAppendingString:@"."];
-        isDotExist = true;
+        dotExist = true;
     }
 }
 @end
