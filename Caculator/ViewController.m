@@ -18,6 +18,7 @@ int _operator = 0;
 
 - (IBAction)number:(UIButton *)sender {
     history.hidden = true;
+    result.hidden = false;
     NSString *text = [NSString stringWithFormat:@"%@",sender.currentTitle];
     result.text = [result.text stringByAppendingString:text];
 }
@@ -152,6 +153,7 @@ int _operator = 0;
 
 - (IBAction)equal:(UIButton *)sender {
     history.hidden = false;
+    result.hidden = true;
     if([history.text isEqual:@""])
         return;
     if([result.text isEqual:@""])
@@ -180,7 +182,7 @@ int _operator = 0;
     }
     result.text = @"";
     history.text = [NSString stringWithFormat:@"%@",res];
-    NSLog(@"%@",history.text);
+    //NSLog(@"%@",history.text);
     _operator = 0;
     dotExist = false;
 }
