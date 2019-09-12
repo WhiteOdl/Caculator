@@ -198,4 +198,14 @@ int _operator = 0;
         dotExist = true;
     }
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    for(UIButton *button in number)
+    {
+        button.layer.borderWidth = 1;
+        button.layer.borderColor = [UIColor blackColor].CGColor;
+    }
+    NSLog(@"%lu",(unsigned long)number.count);
+}
 @end

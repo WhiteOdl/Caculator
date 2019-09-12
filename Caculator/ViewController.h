@@ -12,6 +12,8 @@
 {
     __weak IBOutlet UILabel *result;
     __weak IBOutlet UILabel *history;
+    
+    IBOutletCollection(UIButton) NSArray *number;
 }
 
 - (IBAction)number:(UIButton *)sender;
@@ -24,5 +26,6 @@
 - (IBAction)clear:(UIButton *)sender;
 - (IBAction)equal:(UIButton *)sender;
 - (IBAction)dot:(UIButton *)sender;
+- (void)viewDidLoad;
 @end
 
