@@ -154,6 +154,10 @@ int _operator = 0;
 
 - (IBAction)clear:(UIButton *)sender {
     result.text = @"";
+    if(dotExist)
+        dotExist = false;
+    history.hidden = true;
+    result.hidden = false;
 }
 
 - (IBAction)equal:(UIButton *)sender {
