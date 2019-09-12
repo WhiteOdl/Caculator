@@ -115,8 +115,13 @@ int _operator = 0;
         _operator = 4;
         return;
     }
-    if([history.text  isEqual: @""])
+    if([history.text isEqual: @""])
         return;
+    if([result.text isEqual:@"0"])
+    {
+        result.text =@"";
+        return;
+    }
     if([result.text isEqual:@""])
         result.text = @"1";
     NSDecimalNumber *his = [NSDecimalNumber decimalNumberWithString:history.text];
