@@ -13,6 +13,9 @@
 		616A2EA223272D630083C7BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616A2EA123272D630083C7BA /* Assets.xcassets */; };
 		616A2EA523272D630083C7BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616A2EA323272D630083C7BA /* LaunchScreen.storyboard */; };
 		616A2EA823272D630083C7BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A2EA723272D630083C7BA /* main.m */; };
+		618CF3F1232F22A500A58A1B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618CF3F0232F22A500A58A1B /* MainViewController.m */; };
+		618CF3F4232F257200A58A1B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618CF3F3232F257200A58A1B /* LoginViewController.m */; };
+		618CF3F8232F2DC400A58A1B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 618CF3F6232F2C6F00A58A1B /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		616A2EA423272D630083C7BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		616A2EA623272D630083C7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		616A2EA723272D630083C7BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		618CF3EF232F22A500A58A1B /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		618CF3F0232F22A500A58A1B /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		618CF3F2232F257200A58A1B /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		618CF3F3232F257200A58A1B /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		618CF3F6232F2C6F00A58A1B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618CF3F8232F2DC400A58A1B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,7 @@
 			children = (
 				616A2E9723272D620083C7BA /* Caculator */,
 				616A2E9623272D620083C7BA /* Products */,
+				618CF3F5232F2C6F00A58A1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,8 +77,20 @@
 				616A2EA323272D630083C7BA /* LaunchScreen.storyboard */,
 				616A2EA623272D630083C7BA /* Info.plist */,
 				616A2EA723272D630083C7BA /* main.m */,
+				618CF3EF232F22A500A58A1B /* MainViewController.h */,
+				618CF3F0232F22A500A58A1B /* MainViewController.m */,
+				618CF3F2232F257200A58A1B /* LoginViewController.h */,
+				618CF3F3232F257200A58A1B /* LoginViewController.m */,
 			);
 			path = Caculator;
+			sourceTree = "<group>";
+		};
+		618CF3F5232F2C6F00A58A1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				618CF3F6232F2C6F00A58A1B /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618CF3F1232F22A500A58A1B /* MainViewController.m in Sources */,
 				616A2E9D23272D620083C7BA /* ViewController.m in Sources */,
 				616A2EA823272D630083C7BA /* main.m in Sources */,
 				616A2E9A23272D620083C7BA /* AppDelegate.m in Sources */,
+				618CF3F4232F257200A58A1B /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

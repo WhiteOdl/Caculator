@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "sqlite3.h"
 
 @implementation ViewController : UIViewController
 
