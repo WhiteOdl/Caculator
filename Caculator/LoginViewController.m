@@ -12,52 +12,68 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    sqlite3 *sqliteDB;
     NSString *theStrPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *DBpath = [theStrPath stringByAppendingString:@"/userInfo.db"];
     if(sqlite3_open([DBpath UTF8String], &sqliteDB) == SQLITE_OK)
     {
         int open = [self createTable:sqliteDB];
-        //NSLog(@"open result=%d,path:%@",open,DBpath);
+        NSLog(@"open result=%d,path:%@",open,DBpath);
     }
     else
         NSLog(@"failed,path:%@",DBpath);
-    int quit = [self closeDatabase:sqliteDB];
+    //int quit = [self closeDatabase:sqliteDB];
     //NSLog(@"quit result=%d",quit);
 }
-- (int)createTable:(sqlite3 *)DateBase
+- (int)createTable:(sqlite3 *)DataBase
 {
-    const char *sql = "create table if not exists\
+    const char *createSql = "create table if not exists\
     user (\
     uid integer primary key autoincrement,\
     username varchar(8),\
     password varchar(16)\
     );";
-    sqlite3_stmt *stmt = NULL;
-    return sqlite3_prepare_v2(DateBase,sql,-1,&stmt,nil);
+    char *errMsg = NULL;
+    int createResult = sqlite3_exec(DataBase,createSql,NULL,NULL,
+                 &errMsg);
+    if(errMsg)
+    {
+        NSLog(@"create table failed:%s",errMsg);
+        return -1;
+    }
+    return createResult;
 }
-- (int)searchData:(NSString *)User :(NSString *)Password
+- (int)searchData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password
 {
     return 1;
 }
-- (int)insertData:(sqlite3 *)DateBase
+- (int)insertData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password;
 {
-    return 1;
+    NSString *insertSql = [NSString stringWithFormat:@"insert into user(username,password) values('%@','%@')",User,Password];
+    char *errMsg = NULL;
+    int insertResult = sqlite3_exec(DataBase, insertSql.UTF8String, NULL, NULL, &errMsg);
+    return insertResult;
 }
-- (int)closeDatabase:(sqlite3 *)DateBase
+- (int)closeDatabase:(sqlite3 *)DataBase
 {
-    return sqlite3_close(DateBase);
+    return sqlite3_close(DataBase);
 }
 - (IBAction)Login:(UIButton *)sender {
     NSString *usr = user.text;
     NSString *pwd = password.text;
-    if([self searchData:usr :pwd])
+    if([self searchData:sqliteDB :usr :pwd])
     {
         [self performSegueWithIdentifier:@"ToLogin" sender:self];
     }
 }
 
 - (IBAction)Register:(UIButton *)sender {
+    NSString *usr = user.text;
+    NSString *pwd = password.text;
+    if([self searchData:sqliteDB :usr :pwd])
+    {
+        int rc = [self insertData:sqliteDB :usr :pwd];
+        NSLog(@"rc=%d",rc);
+    }
 }
 
 @end

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginViewController : UIViewController
 {
+    sqlite3 *sqliteDB;
     __weak IBOutlet UITextField *user;
     __weak IBOutlet UITextField *password;
     __weak IBOutlet UIButton *login;
@@ -19,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 - (IBAction)Login:(UIButton *)sender;
 - (IBAction)Register:(UIButton *)sender;
-- (int)createTable:(sqlite3 *)DateBase;
-- (int)searchData:(NSString *)User :(NSString *)Password;
-- (int)insertData:(sqlite3 *)DateBase;
+- (int)createTable:(sqlite3 *)DataBase;
+- (int)searchData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password;
+- (int)insertData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password;
 - (int)closeDatabase:(sqlite3 *)DateBase;
 @end
 
