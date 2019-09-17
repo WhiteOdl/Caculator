@@ -408,11 +408,14 @@ int _operator = 0;
      */
 - (IBAction)equal:(UIButton *)sender {
     //按下“=”就将history这个UIlabel显示出来
-    //运算符不为0，显示运算结果
+    //运算符不为0，显示运算结果;
     //运算符为0，即在输入数字后直接按“=”
     //将直接舍去result的内容，显示histroy
+    if(_operator != 0)
+    {
     history.hidden = false;
     result.hidden = true;
+    }
     //如果history内的文本为空，但是result的文本不为空，
     //将result的内容直接赋值给history，并清空result
     //目的是为了防止在不输入数字时直接按下“=”导致程序崩溃
