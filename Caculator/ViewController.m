@@ -403,14 +403,12 @@ int _operator = 0;
      写入history的文本中
      */
 - (IBAction)equal:(UIButton *)sender {
-    //只有当按下四则运算的运算符时，才把histoy显示、result隐藏
-    //因为history是用来显示运算结果的，进行%、+/-时是对result
-    //即当前数字操作
-    if(_operator != 0)
-    {
-        history.hidden = false;
-        result.hidden = true;
-    }
+    //按下“=”就将history这个UIlabel显示出来
+    //运算符不为0，显示运算结果
+    //运算符为0，即在输入数字后直接按“=”
+    //将直接舍去result的内容显示histroy
+    history.hidden = false;
+    result.hidden = true;
     //目的是为了防止在不输入数字时直接按下“=”导致程序崩溃
     if([history.text isEqual:@""])
         return;
