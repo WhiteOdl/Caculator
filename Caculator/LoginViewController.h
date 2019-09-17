@@ -21,6 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
     __weak IBOutlet UITextField *password;
     __weak IBOutlet UIButton *login;
     __weak IBOutlet UIButton *regist;
+    enum accountStatus
+    {
+        User_Exist = 1,
+        User_NotExist = 2,
+        Password_Error = 4,
+        Password_Correct = 8,
+        Empty_InputUser = 16,
+        Empty_InputPassword = 32,
+    };
 }
 //2个Button的控制方法
 - (IBAction)Login:(UIButton *)sender;

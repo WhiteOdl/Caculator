@@ -61,7 +61,31 @@
  */
 - (int)searchData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password
 {
-    return 1;
+    if(User == nil)
+        return Empty_InputUser;
+    NSString *searchSql = [NSString stringWithFormat:@"select * from user where username = '%@';",User];
+    sqlite3_stmt *stmt = NULL;
+    NSString *name = nil;
+    NSString *password = nil;
+    if(sqlite3_prepare_v2(DataBase, searchSql.UTF8String, -1, &stmt, NULL) == SQLITE_OK)
+    {
+        if(sqlite3_step(stmt) == SQLITE_ROW)
+        {
+            name = [NSString stringWithFormat:@"%s", sqlite3_column_text(stmt,1)];
+            password =[NSString stringWithFormat:@"%s", sqlite3_column_text(stmt,2)];
+        }
+    }
+    sqlite3_finalize(stmt);
+    if(name != nil)
+    {
+        if([Password isEqual:password])
+            return User_Exist | Password_Correct;
+        else
+            return User_Exist | Password_Error;
+    }
+    if(name == nil && Password == nil)
+        return User_NotExist | Empty_InputPassword;
+    return User_NotExist;
 }
 /*
  函数作用：在注册时将user和password这2个UItextfiled里的
@@ -69,7 +93,7 @@
  */
 - (int)insertData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password;
 {
-    NSString *insertSql = [NSString stringWithFormat:@"insert into user(username,password) values('%@','%@')",User,Password];
+    NSString *insertSql = [NSString stringWithFormat:@"insert into user(username,password) values('%@','%@');",User,Password];
     char *errMsg = NULL;
     int insertResult = sqlite3_exec(DataBase, insertSql.UTF8String, NULL, NULL, &errMsg);
     return insertResult;
@@ -87,7 +111,7 @@
 - (IBAction)Login:(UIButton *)sender {
     NSString *usr = user.text;
     NSString *pwd = password.text;
-    if([self searchData:sqliteDB :usr :pwd])
+    if([self searchData:sqliteDB :usr :pwd] == (User_Exist | Password_Correct))
     {
         [self performSegueWithIdentifier:@"ToLogin" sender:self];
     }
@@ -98,11 +122,10 @@
 - (IBAction)Register:(UIButton *)sender {
     NSString *usr = user.text;
     NSString *pwd = password.text;
-    if([self searchData:sqliteDB :usr :pwd])
+    if(([self searchData:sqliteDB :usr :pwd] & User_NotExist) == User_NotExist && ![pwd  isEqual: @""])
     {
         int rc = [self insertData:sqliteDB :usr :pwd];
         NSLog(@"rc=%d",rc);
     }
 }
-
 @end
