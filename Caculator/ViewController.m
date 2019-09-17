@@ -76,7 +76,8 @@ int _operator = 0;
         return;
     }
     //如果history内的内容为空，直接结束函数体
-    //目的是为了防止在第一次不输入数字时直接按下运算符导致程序崩溃
+    //目的是为了防止在第一次不输入数字时直接按下运算符
+    //导致程序崩溃
     if([history.text  isEqual: @""])
         return;
     //如果result内的内容为空，对result初始化为0
@@ -355,6 +356,9 @@ int _operator = 0;
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *operatorPercent = [NSDecimalNumber decimalNumberWithString:@"0.01"];
     NSDecimalNumber *resultNumber = [currentNumber decimalNumberByMultiplyingBy:operatorPercent];
+    //对进行了百分比运算的数字进行小数点判定
+    if([resultNumber intValue] != [resultNumber doubleValue])
+        dotExist = true;
     //将resultNumber转化为字符串赋值给result的文本内容
     result.text = [NSString stringWithFormat:@"%@",resultNumber];
 }
@@ -406,12 +410,19 @@ int _operator = 0;
     //按下“=”就将history这个UIlabel显示出来
     //运算符不为0，显示运算结果
     //运算符为0，即在输入数字后直接按“=”
-    //将直接舍去result的内容显示histroy
+    //将直接舍去result的内容，显示histroy
     history.hidden = false;
     result.hidden = true;
+    //如果history内的文本为空，但是result的文本不为空，
+    //将result的内容直接赋值给history，并清空result
     //目的是为了防止在不输入数字时直接按下“=”导致程序崩溃
-    if([history.text isEqual:@""])
+    if([history.text isEqual:@""] && ![result.text isEqual:@""])
+    {
+        history.text = result.text;
+        result.text = @"";
+        first = false;
         return;
+    }
     //如果result内的内容为空，对result初始化为0
     //目的是为了防止按下运算符后不输入数字直接按下“=”后
     //导致程序崩溃

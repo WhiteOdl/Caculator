@@ -21,6 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
     __weak IBOutlet UITextField *password;
     __weak IBOutlet UIButton *login;
     __weak IBOutlet UIButton *regist;
+    /*
+     枚举类：
+     账户状态：
+     用户存在 = 1，
+     用户不存在 = 2，
+     密码错误 = 4，
+     密码正确 = 8，
+     在UITextField中输入了空的用户名 = 16，
+     在UITextField中输入了空的密码 = 32，
+     */
     enum accountStatus
     {
         User_Exist = 1,
