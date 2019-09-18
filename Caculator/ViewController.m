@@ -63,14 +63,7 @@ int _operator = 0;
      */
     if(_operator != 1 && _operator != 0 && ![result.text isEqual:@""])
     {
-    /*
-        因为当前的运算符是其他运算，直接调用“=”按钮的方法
-     调用完毕就把运算符变成“+”，然后“加法”函数结束。
-        此处已经把运算符变成“+”，无论是在“=”方法里还是其
-     他运算的逻辑代码中，都会先进行加法运算。
-        即在连续运算中，当前运算按钮总是会先执行上一次的运
-     算方法直到按下“=”。
-     */
+        //调用一次equal，结算上一次运算结果
         [self equal:nil];
         _operator = 1;
         return;
@@ -95,9 +88,7 @@ int _operator = 0;
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *historyNumber = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *resultNumber = [currentNumber decimalNumberByAdding:historyNumber];
-    //将resultNumber转化为字符串赋值给history的文本内容
     history.text = [NSString stringWithFormat:@"%@",resultNumber];
-    //将result的文本内容清空，利于进行运算符之后的数字输入
     result.text = @"";
     /*
      把运算符变成“+”，然后“加法”函数结束。
@@ -105,7 +96,6 @@ int _operator = 0;
      他运算的逻辑代码中，都会先进行加法运算。
      */
     _operator = 1;
-    //因为result的内容被清空了，自然小数点也不会存在
     dotExist = false;
 }
     /*
@@ -129,7 +119,7 @@ int _operator = 0;
          局部变量说明：
          1.currentNumber：result的UIlabel中的内容
          2.Number2: 字符串2的NSDecimalNumber类
-         3.resultNumber：currentNumber和Number2乘积
+         3.resultNumber：currentNumber和Number2差
          */
         NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
         NSDecimalNumber *Number2 = [NSDecimalNumber decimalNumberWithString:@"2"];
@@ -146,14 +136,7 @@ int _operator = 0;
      */
     if(_operator != 2 && _operator != 0 && ![result.text isEqual:@""])
     {
-    /*
-        因为当前的运算符是其他运算，直接调用“=”按钮的方法
-     调用完毕就把运算符变成“-”，然后“减法”函数结束。
-        此处已经把运算符变成“-”，无论是在“=”方法里还是其
-     他运算的逻辑代码中，都会先进行加法运算。
-        即在连续运算中，当前运算按钮总是会先执行上一次的运
-     算方法直到按下“=”。
-     */
+        //调用一次equal，结算上一次运算结果
         [self equal:nil];
         _operator = 2;
         return;
@@ -173,9 +156,7 @@ int _operator = 0;
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *historyNumber = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *resultNumber = [historyNumber decimalNumberBySubtracting:currentNumber];
-    //将resultNumber转化为字符串赋值给history的文本内容
     history.text = [NSString stringWithFormat:@"%@",resultNumber];
-    //将result的文本内容清空，利于进行运算符之后的数字输入
     result.text = @"";
     /*
      把运算符变成“-”，然后“减法”函数结束。
@@ -187,7 +168,7 @@ int _operator = 0;
     dotExist = false;
 }
     /*
-     函数说明：惩罚运算，思路为读取history中的数据和result
+     函数说明：乘法运算，思路为读取history中的数据和result
      内的数字相乘，因此需要对history的内容初始化为1
      */
 - (IBAction)multiply:(UIButton *)sender {
@@ -213,14 +194,7 @@ int _operator = 0;
      */
     if(_operator != 3 && _operator != 0 && ![result.text isEqual:@""])
     {
-    /*
-        因为当前的运算符是其他运算，直接调用“=”按钮的方法
-     调用完毕就把运算符变成“*”，然后“乘法”函数结束。
-        此处已经把运算符变成“*”，无论是在“=”方法里还是其
-     他运算的逻辑代码中，都会先进行加法运算。
-        即在连续运算中，当前运算按钮总是会先执行上一次的运
-     算方法直到按下“=”。
-     */
+        ///调用一次equal，结算上一次运算结果
         [self equal:nil];
         _operator = 3;
         return;
@@ -235,14 +209,12 @@ int _operator = 0;
      局部变量说明：
      1.currentNumber：result的UIlabel中的内容
      2.historyNumber: history的UIlabel中的内容
-     3.resultNumber：currentNumber和historyNumber的和差
+     3.resultNumber：currentNumber和historyNumber的和积
      */
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *historyNumber = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *resultNumber = [currentNumber decimalNumberByMultiplyingBy:historyNumber];
-    //将resultNumber转化为字符串赋值给history的文本内容
     history.text = [NSString stringWithFormat:@"%@",resultNumber];
-    //将result的文本内容清空，利于进行运算符之后的数字输入
     result.text = @"";
     /*
      把运算符变成“*”，然后“乘法”函数结束。
@@ -277,7 +249,6 @@ int _operator = 0;
          */
         NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
         NSDecimalNumber *resultNumber = [currentNumber decimalNumberByMultiplyingBy:currentNumber];
-        //history的文本内容初始化，同时first将不再成立
         history.text = [NSString stringWithFormat:@"%@",resultNumber];
         first = false;
     }
@@ -289,14 +260,7 @@ int _operator = 0;
      */
     if(_operator != 4 && _operator != 0 && ![result.text isEqual:@""])
     {
-        /*
-            因为当前的运算符是其他运算，直接调用“=”按钮的方法
-         调用完毕就把运算符变成“➗”，然后“减法”函数结束。
-            此处已经把运算符变成“➗”，无论是在“=”方法里还是其
-         他运算的逻辑代码中，都会先进行加法运算。
-            即在连续运算中，当前运算按钮总是会先执行上一次的运
-         算方法直到按下“=”。
-         */
+         //调用一次equal，结算上一次运算结果
         [self equal:nil];
         _operator = 4;
         return;
@@ -324,9 +288,7 @@ int _operator = 0;
     NSDecimalNumber *historyNumber = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *resultNumber = [historyNumber decimalNumberByDividingBy:currentNumber];
-    //将resultNumber转化为字符串赋值给history的文本内容
     history.text = [NSString stringWithFormat:@"%@",resultNumber];
-    //将result的文本内容清空，利于进行运算符之后的数字输入
     result.text = @"";
     /*
      把运算符变成“➗”，然后“除法”函数结束。
@@ -334,33 +296,82 @@ int _operator = 0;
      他运算的逻辑代码中，都会先进行除法运算。
      */
     _operator = 4;
-    //因为result的内容被清空了，自然小数点也不会存在
     dotExist = false;
 }
     /*
-     函数说明：百分号的转换
+     函数说明：取余运算
      */
 - (IBAction)mod:(UIButton *)sender {
-    //如果在result无内容的情况下按下“%”按钮，直接退出函数
-    //防止进行后续操作时崩溃
-    if([result.text  isEqual: @""])
-    return;
+    /*
+     此处逻辑判断意为：
+     在满足result中的内容不为空的情况下，如果是第一次按下“%”
+     按钮或者当前运算符（四则运算）等于0:
+     然后对history内的文本内容初始化为result数字的文本内容
+     条件“运算符等于0”是为了在按下”=“按钮后实现新的2个数的运算
+     */
+    if((first || !_operator) && ![result.text isEqual:@""])
+    {
+        //history的文本内容初始化，同时first将不再成立
+        history.text = result.text;
+        first = false;
+        result.text = @"";
+    }
+    /*
+     此处逻辑判断意为：
+     当当前运算符不是“%”也不是初始值，而且result中的内容不为空
+     目的是为了实现类似1+2*3/4这样按下多种运算符的一次性运算
+     在只有除法的表达式中（1%2%3%4）此处就不会执行
+     */
+    if(_operator != 5 && _operator != 0 && ![result.text isEqual:@""])
+    {
+        /*
+         因为当前的运算符是其他运算，直接调用“=”按钮的方法
+         调用完毕就把运算符变成“%”，然后“取余”函数结束。
+         此处已经把运算符变成“%”，无论是在“=”方法里还是其
+         他运算的逻辑代码中，都会先进行取余运算。
+         即在连续运算中，当前运算按钮总是会先执行上一次的运
+         算方法直到按下“=”。
+         */
+        [self equal:nil];
+        _operator = 5;
+        return;
+    }
+    //此处一样的逻辑判断，都是为了防止运算符前后无输入而崩溃
+    if([history.text isEqual: @""])
+        return;
+    //result为空直接返回，等待按下数字后的“=”操作或其他运算操作
+    if([result.text isEqual:@""])
+    {
+        _operator = 5;
+        dotExist = false;
+        return;
+    }
     /*
      此处使用了NSDecimalNumber类进行高精度计算
      局部变量说明：
      1.currentNumber：result的UIlabel中的内容
-     2.operatorPercent: 百分号的实际取值：0.01
-     3.resultNumber：currentNumber和的operatorPercent的
-                    积
+     2.historyNumber: history的UIlabel中的内容
+     3.Result:result和history的int值取整后取余
+     结果
+     4.resultNumber：取余结果Result写入
+     resultNumber中
      */
+    NSDecimalNumber *historyNumber = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
-    NSDecimalNumber *operatorPercent = [NSDecimalNumber decimalNumberWithString:@"0.01"];
-    NSDecimalNumber *resultNumber = [currentNumber decimalNumberByMultiplyingBy:operatorPercent];
-    //对进行了百分比运算的数字进行小数点判定
-    if([resultNumber intValue] != [resultNumber doubleValue])
-        dotExist = true;
-    //将resultNumber转化为字符串赋值给result的文本内容
-    result.text = [NSString stringWithFormat:@"%@",resultNumber];
+    int Result = [historyNumber intValue] % [currentNumber intValue];
+    NSDecimalNumber *resultNumber = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d",Result]];
+    //将resultNumber转化为字符串赋值给history的文本内容
+    history.text = [NSString stringWithFormat:@"%@",resultNumber];
+    //将result的文本内容清空，利于进行运算符之后的数字输入
+    result.text = @"";
+    /*
+     把运算符变成“%”，然后“除法”函数结束。
+     此处已经把运算符变成“%”，无论是在“=”方法里还是其
+     他运算的逻辑代码中，都会先进行取余运算。
+     */
+    _operator = 5;
+    //因为result的内容被清空了，自然小数点也不会存在
+    dotExist = false;
 }
     /*
      函数作用：对当前result的数字取反
@@ -442,9 +453,9 @@ int _operator = 0;
     NSDecimalNumber *currentNumber = [NSDecimalNumber decimalNumberWithString:result.text];
     NSDecimalNumber *historyNumber = [NSDecimalNumber decimalNumberWithString:history.text];
     NSDecimalNumber *resultNumber ;
+    int Result = 0;
     /*
      对不同运算符进行不同计算：
-     
      */
     switch (_operator)
     {
@@ -469,6 +480,13 @@ int _operator = 0;
             if(currentNumber.doubleValue == 0)
                 currentNumber = [NSDecimalNumber decimalNumberWithString:@"1"];
             resultNumber = [historyNumber decimalNumberByDividingBy:currentNumber];
+    //当运算符是“%”
+    //需要用整型Result接收数据
+        case 5:
+            if(currentNumber.intValue == 0)
+                currentNumber = [NSDecimalNumber decimalNumberWithString:@"1"];
+            Result = [historyNumber intValue] % [currentNumber intValue];
+            resultNumber = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d",Result]];
         break;
     //当运算符不是加减乘除时：
     //resultNumber的值为historyNumber
