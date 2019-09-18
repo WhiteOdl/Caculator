@@ -25,7 +25,7 @@
 - (IBAction)multiply:(UIButton *)sender;
 - (IBAction)divide:(UIButton *)sender;
     //取百分比、相反数的运算
-- (IBAction)percent:(UIButton *)sender;
+- (IBAction)mod:(UIButton *)sender;
 - (IBAction)reverse:(UIButton *)sender;
     //清空history和result中的内容
 - (IBAction)clear:(UIButton *)sender;

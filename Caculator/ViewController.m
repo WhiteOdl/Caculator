@@ -340,7 +340,7 @@ int _operator = 0;
     /*
      函数说明：百分号的转换
      */
-- (IBAction)percent:(UIButton *)sender {
+- (IBAction)mod:(UIButton *)sender {
     //如果在result无内容的情况下按下“%”按钮，直接退出函数
     //防止进行后续操作时崩溃
     if([result.text  isEqual: @""])
