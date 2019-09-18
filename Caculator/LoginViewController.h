@@ -53,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)insertData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password;
 //关闭数据库
 - (int)closeDatabase:(sqlite3 *)DateBase;
+- (IBAction)onTapGestureRecongnized:(UITapGestureRecognizer *)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

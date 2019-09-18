@@ -480,6 +480,7 @@ int _operator = 0;
             if(currentNumber.doubleValue == 0)
                 currentNumber = [NSDecimalNumber decimalNumberWithString:@"1"];
             resultNumber = [historyNumber decimalNumberByDividingBy:currentNumber];
+            break;
     //当运算符是“%”
     //需要用整型Result接收数据
         case 5:

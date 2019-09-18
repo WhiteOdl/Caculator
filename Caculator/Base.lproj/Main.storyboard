@@ -75,16 +75,25 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zEE-AE-cd2" appends="YES" id="mrK-FT-KyA"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="login" destination="eQg-N1-ceF" id="WFK-fD-zNe"/>
-                        <outlet property="password" destination="4RU-mn-Iuf" id="df0-Wx-rb0"/>
+                        <outlet property="password" destination="4RU-mn-Iuf" id="H97-UN-jeP"/>
                         <outlet property="regist" destination="YWM-eS-Z7i" id="HAz-n1-PXr"/>
-                        <outlet property="user" destination="muR-sx-Wur" id="GtY-7o-kqq"/>
+                        <outlet property="user" destination="muR-sx-Wur" id="nMq-qU-ZHV"/>
                         <segue destination="xNA-e7-kOc" kind="presentation" identifier="ToLogin" id="hx2-Bm-HbK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuv-uY-1rg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zEE-AE-cd2">
+                    <connections>
+                        <action selector="onTapGestureRecongnized:" destination="tam-yG-rH5" id="ebu-97-6m6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1205.7971014492755" y="-525"/>
         </scene>
@@ -415,10 +424,10 @@
             </objects>
             <point key="canvasLocation" x="-367" y="-525"/>
         </scene>
-        <!--Item-->
+        <!--Options-->
         <scene sceneID="281-rj-ypQ">
             <objects>
-                <viewController id="2oY-F2-OC1" sceneMemberID="viewController">
+                <viewController id="2oY-F2-OC1" customClass="OptionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HFF-rh-Otc"/>
                         <viewControllerLayoutGuide type="bottom" id="q1b-oo-CD3"/>
@@ -427,24 +436,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no message here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvW-oR-VUa">
-                                <rect key="frame" x="97" y="430" width="220" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUV-i2-Tv4">
+                                <rect key="frame" x="141" y="565" width="133" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Exit:" destination="2oY-F2-OC1" eventType="touchUpInside" id="89k-vP-Hgm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCX-B2-Aft">
+                                <rect key="frame" x="141" y="250" width="133" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="LoginLog">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginLog:" destination="2oY-F2-OC1" eventType="touchUpInside" id="mmm-w3-NWN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="WvW-oR-VUa" firstAttribute="centerY" secondItem="1F8-WS-y0u" secondAttribute="centerY" id="sQS-pP-Faf"/>
-                            <constraint firstItem="WvW-oR-VUa" firstAttribute="centerX" secondItem="1F8-WS-y0u" secondAttribute="centerX" id="wkm-QN-KpR"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="vhF-bN-2BG"/>
+                    <tabBarItem key="tabBarItem" title="Options" id="vhF-bN-2BG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eI9-2x-zxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="-891"/>
+            <point key="canvasLocation" x="492.75362318840581" y="-891.29464285714278"/>
         </scene>
     </scenes>
 </document>

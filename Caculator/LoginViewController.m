@@ -17,18 +17,16 @@
     /*
      数据库名：userInfo.db
      */
-    NSString *BasePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSString *BasePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     //变量DBpath为完整路径
     NSString *DBpath = [BasePath stringByAppendingString:@"/userInfo.db"];
+     
     //成功打开数据库
     if(sqlite3_open([DBpath UTF8String], &sqliteDB) == SQLITE_OK)
-    {
-        int open = [self createTable:sqliteDB];
-        NSLog(@"open result=%d,path:%@",open,DBpath);
-    }
+        [self createTable:sqliteDB];
     //失败
     else
-        NSLog(@"failed,path:%@",DBpath);
+        NSLog(@"\nfailed,database path:\n%@",DBpath);
 }
 /*
   函数作用：创建user表
@@ -130,6 +128,11 @@
     //将close函数的返回值当作此函数的返回值
     return sqlite3_close(DataBase);
 }
+    //轻触其他空白区域关闭键盘
+- (IBAction)onTapGestureRecongnized:(UITapGestureRecognizer *)sender {
+    [user resignFirstResponder];
+    [password resignFirstResponder];
+}
 /*
  函数作用：Login按钮的动作，登陆成功可以跳转到主页面
  */
@@ -141,6 +144,7 @@
     {
         //跳转到主页面
         [self performSegueWithIdentifier:@"ToLogin" sender:self];
+        [self closeDatabase:sqliteDB];
     }
 }
 /*
