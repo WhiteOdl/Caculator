@@ -26,4 +26,6 @@
 }
 */
 
+- (IBAction)Register:(UIButton *)sender {
+}
 @end

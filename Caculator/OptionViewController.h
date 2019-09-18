@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 {
     
 }
-- (IBAction)LoginLog:(UIButton *)sender;
 - (IBAction)Exit:(UIButton *)sender;
 
 @end

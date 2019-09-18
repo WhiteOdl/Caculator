@@ -25,8 +25,6 @@
 }
 */
 
-- (IBAction)LoginLog:(UIButton *)sender {
-}
 
 - (IBAction)Exit:(UIButton *)sender {
     exit(0);

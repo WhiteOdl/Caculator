@@ -41,9 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
         Empty_InputPassword = 32,
     };
 }
-//2个Button的控制方法
+//3个Button的控制方法
 - (IBAction)Login:(UIButton *)sender;
+- (IBAction)JumpToRegister:(UIButton *)sender;
 - (IBAction)Register:(UIButton *)sender;
+- (IBAction)LogView:(UIButton *)sender;
 //数据库操作的方法：
 //建立用户表
 - (int)createTable:(sqlite3 *)DataBase;

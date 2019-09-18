@@ -147,6 +147,10 @@
         [self closeDatabase:sqliteDB];
     }
 }
+
+- (IBAction)JumpToRegister:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"ToRegister" sender:self];
+}
 /*
  函数作用：Register按钮的动作，用来注册新用户
  */
@@ -160,6 +164,10 @@
         //将此数据插入到数据库表中
         int rc = [self insertData:sqliteDB :username :passwords];
         NSLog(@"rc=%d",rc);
+        [self performSegueWithIdentifier:@"BackToLogin" sender:self];
     }
+}
+
+- (IBAction)LogView:(UIButton *)sender {
 }
 @end
