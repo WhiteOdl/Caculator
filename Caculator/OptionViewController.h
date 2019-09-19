@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OptionViewController : UIViewController
 {
-    
+
 }
 - (IBAction)Exit:(UIButton *)sender;
 

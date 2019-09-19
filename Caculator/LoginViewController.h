@@ -46,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)JumpToRegister:(UIButton *)sender;
 - (IBAction)Register:(UIButton *)sender;
 - (IBAction)BackToLogin:(UIButton *)sender;
-- (IBAction)LogView:(UIButton *)sender;
 //数据库操作的方法：
 //建立用户表
 - (int)createTable:(sqlite3 *)DataBase;
@@ -56,8 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)insertData:(sqlite3 *)DataBase :(NSString *)User :(NSString *)Password;
 //关闭数据库
 - (int)closeDatabase:(sqlite3 *)DateBase;
+//通过点击空白页面关闭虚拟键盘
 - (IBAction)onTapGestureRecongnized:(UITapGestureRecognizer *)sender;
-
+-(IBAction)TextEndEdit:(UITextField *)sender;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -133,6 +133,11 @@
     [user resignFirstResponder];
     [password resignFirstResponder];
 }
+    //按下虚拟键盘return关闭键盘
+- (IBAction)TextEndEdit:(UITextField *)sender
+{
+    [sender resignFirstResponder];
+}
 /*
  函数作用：Login按钮的动作，登陆成功可以跳转到主页面
  */
@@ -147,7 +152,7 @@
         [self closeDatabase:sqliteDB];
     }
 }
-
+//按下register按钮前往注册页面
 - (IBAction)JumpToRegister:(UIButton *)sender {
     [self performSegueWithIdentifier:@"ToRegister" sender:self];
 }
@@ -167,11 +172,10 @@
         [self performSegueWithIdentifier:@"BackToLogin" sender:self];
     }
 }
-
+//在注册页面按下back返回登陆页面
 - (IBAction)BackToLogin:(UIButton *)sender {
     [self performSegueWithIdentifier:@"BackToLogin" sender:self];
 }
 
-- (IBAction)LogView:(UIButton *)sender {
-}
+
 @end

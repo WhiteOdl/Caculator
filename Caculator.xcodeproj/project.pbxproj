@@ -17,6 +17,7 @@
 		618CF3F4232F257200A58A1B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618CF3F3232F257200A58A1B /* LoginViewController.m */; };
 		618CF3F8232F2DC400A58A1B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 618CF3F6232F2C6F00A58A1B /* libsqlite3.tbd */; };
 		61C0DF452331E1630005276B /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C0DF442331E1630005276B /* OptionViewController.m */; };
+		61C0FAD1233359660058FF7E /* LoginLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C0FAD0233359660058FF7E /* LoginLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		618CF3F6232F2C6F00A58A1B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		61C0DF432331E1630005276B /* OptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
 		61C0DF442331E1630005276B /* OptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
+		61C0FACF233359660058FF7E /* LoginLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginLog.h; sourceTree = "<group>"; };
+		61C0FAD0233359660058FF7E /* LoginLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginLog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				618CF3F3232F257200A58A1B /* LoginViewController.m */,
 				61C0DF432331E1630005276B /* OptionViewController.h */,
 				61C0DF442331E1630005276B /* OptionViewController.m */,
+				61C0FACF233359660058FF7E /* LoginLog.h */,
+				61C0FAD0233359660058FF7E /* LoginLog.m */,
 			);
 			path = Caculator;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				616A2E9D23272D620083C7BA /* ViewController.m in Sources */,
 				616A2EA823272D630083C7BA /* main.m in Sources */,
 				61C0DF452331E1630005276B /* OptionViewController.m in Sources */,
+				61C0FAD1233359660058FF7E /* LoginLog.m in Sources */,
 				616A2E9A23272D620083C7BA /* AppDelegate.m in Sources */,
 				618CF3F4232F257200A58A1B /* LoginViewController.m in Sources */,
 			);
