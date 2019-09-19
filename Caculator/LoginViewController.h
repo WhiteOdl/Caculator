@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)Login:(UIButton *)sender;
 - (IBAction)JumpToRegister:(UIButton *)sender;
 - (IBAction)Register:(UIButton *)sender;
+- (IBAction)BackToLogin:(UIButton *)sender;
 - (IBAction)LogView:(UIButton *)sender;
 //数据库操作的方法：
 //建立用户表

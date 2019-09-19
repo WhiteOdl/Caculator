@@ -168,6 +168,10 @@
     }
 }
 
+- (IBAction)BackToLogin:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"BackToLogin" sender:self];
+}
+
 - (IBAction)LogView:(UIButton *)sender {
 }
 @end
