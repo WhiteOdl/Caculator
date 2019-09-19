@@ -27,6 +27,6 @@
 
 
 - (IBAction)Exit:(UIButton *)sender {
-    exit(0);
+    //exit(0);
 }
 @end

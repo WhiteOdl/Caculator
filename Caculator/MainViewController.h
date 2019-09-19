@@ -12,8 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainViewController : UITabBarController
 {
-    
+
 }
+- (void) leftGesture:(UISwipeGestureRecognizer *) recognizer;
+- (void) rightGesture:(UISwipeGestureRecognizer *) recognizer;
+- (void) upGesture:(UISwipeGestureRecognizer *) recognizer;
+- (void) downGesture:(UISwipeGestureRecognizer *)recognizer;
 @end
 
 NS_ASSUME_NONNULL_END
