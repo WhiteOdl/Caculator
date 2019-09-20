@@ -7,15 +7,13 @@
 //
 
 #import "LogViewController.h"
-
-@interface LogViewController ()
-
-@end
-
 @implementation LogViewController
-
+{
+    LoginLog *logs;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    logs = [LoginLog shareLoginLog];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -23,7 +21,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+-(void)init:(UITableViewCellStyle *)style :(NSString *)identifier
+{
+    CGRect addressRect = CGRectMake(0, 5, 70, 15);
+    UILabel *addressLabel = [[UILabel alloc]initWithFrame:addressRect];
+    addressLabel.textAlignment = NSTextAlignmentRight;
+    addressLabel.text = @"IPAddress:";
+    addressLabel.font = [UIFont boldSystemFontOfSize:12];
+    [self.view addSubview:addressLabel];
+}
+/*
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -35,17 +42,23 @@
 #warning Incomplete implementation, return the number of rows
     return 0;
 }
-
+*/
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString *CellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        NSInteger sectionNumber = [indexPath section];
+        NSInteger rowNumber = [indexPath row];
+        cell.textLabel.text = [NSString stringWithFormat:@"label text:%ld,%ld",(long)sectionNumber,(long)rowNumber];
+        cell.textLabel.textColor = [UIColor greenColor];
+        self.tableView.delegate = self;
+    }
     return cell;
 }
 */
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

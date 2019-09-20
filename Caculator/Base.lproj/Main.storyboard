@@ -228,12 +228,12 @@
             </objects>
             <point key="canvasLocation" x="-1344.9275362318842" y="309.375"/>
         </scene>
-        <!--Title-->
+        <!--LoginLog-->
         <scene sceneID="7ds-Ri-qDJ">
             <objects>
                 <tableViewController id="Z8f-ny-ziA" customClass="LogViewController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="XIi-PE-BT9"/>
+                    <navigationItem key="navigationItem" title="LoginLog" id="XIi-PE-BT9"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj9-0t-7BA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -625,8 +625,8 @@
         <image name="Caculator" width="500" height="886"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="omr-wb-MVv"/>
-        <segue reference="klh-2i-Jw1"/>
+        <segue reference="Fgp-OJ-n43"/>
+        <segue reference="lh4-Wj-8Rh"/>
         <segue reference="Ulp-fx-5IB"/>
     </inferredMetricsTieBreakers>
 </document>

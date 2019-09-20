@@ -10,7 +10,6 @@
 #import "sqlite3.h"
 
 @implementation ViewController : UIViewController
-
 /*
     全局变量说明：
     1.first：用来在四则运算中判断是不是第一次输入数字，
