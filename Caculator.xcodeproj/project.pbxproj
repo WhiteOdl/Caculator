@@ -18,6 +18,7 @@
 		618CF3F8232F2DC400A58A1B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 618CF3F6232F2C6F00A58A1B /* libsqlite3.tbd */; };
 		61C0DF452331E1630005276B /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C0DF442331E1630005276B /* OptionViewController.m */; };
 		61C0FAD1233359660058FF7E /* LoginLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C0FAD0233359660058FF7E /* LoginLog.m */; };
+		61CAFE362334588B002A2CE9 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CAFE352334588B002A2CE9 /* LogViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		61C0DF442331E1630005276B /* OptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
 		61C0FACF233359660058FF7E /* LoginLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginLog.h; sourceTree = "<group>"; };
 		61C0FAD0233359660058FF7E /* LoginLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginLog.m; sourceTree = "<group>"; };
+		61CAFE342334588B002A2CE9 /* LogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		61CAFE352334588B002A2CE9 /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				61C0DF442331E1630005276B /* OptionViewController.m */,
 				61C0FACF233359660058FF7E /* LoginLog.h */,
 				61C0FAD0233359660058FF7E /* LoginLog.m */,
+				61CAFE342334588B002A2CE9 /* LogViewController.h */,
+				61CAFE352334588B002A2CE9 /* LogViewController.m */,
 			);
 			path = Caculator;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				61C0FAD1233359660058FF7E /* LoginLog.m in Sources */,
 				616A2E9A23272D620083C7BA /* AppDelegate.m in Sources */,
 				618CF3F4232F257200A58A1B /* LoginViewController.m in Sources */,
+				61CAFE362334588B002A2CE9 /* LogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
